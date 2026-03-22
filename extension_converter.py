@@ -108,10 +108,6 @@ def build_ffmpeg_cmd(input_path: str, output_path: str, mode: str = "primary", w
 # ──────────────────────────────────────────────────────────────────────────────
 
 def ffprobe_duration_seconds(input_path: str) -> Optional[float]:
-    """
-    ffprobe로 duration을 가져온다. 실패하면 None.
-    일부 .sec(raw h264)에서는 duration이 없을 수 있음.
-    """
     try:
         # format.duration 먼저 시도, 없으면 streams의 duration 시도
         cmd = [
@@ -168,10 +164,6 @@ set_file_progress._running = False
 # ──────────────────────────────────────────────────────────────────────────────
 
 def run_ffmpeg_with_progress(input_path: str, output_path: str, mode: str = "primary") -> bool:
-    """
-    ffmpeg -progress pipe:1 출력의 out_time_ms를 읽어 파일 단위 진행률을 계산한다.
-    duration이 없으면 indeterminate 모드로 표시.
-    """
     duration = ffprobe_duration_seconds(input_path)
     indeterminate = duration is None or duration <= 0
 
