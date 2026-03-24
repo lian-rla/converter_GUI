@@ -1,4 +1,4 @@
-##[Converter_GUI.exe](https://github.com/lian-rla/converter_GUI/releases/tag/converter_GUI)
+### [Download - Converter_GUI.exe zip file](https://github.com/lian-rla/converter_GUI/releases/tag/converter_GUI)
 
 
 # SEC Extension Converter
